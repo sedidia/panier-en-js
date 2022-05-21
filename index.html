@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="icomoon/style.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="h1"><i class="icon-shopping-cart"></i></h1>
+    <section>
+        <div class="produit">
+            <img src="images/11.jpg" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, a!</p>
+            <h6>$325.45</h6>
+            <span></span>
+            <button>Add-cart</button>
+        </div>
+        <div class="produit">
+            <img src="images/10.jpg" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, a!</p>
+            <h6>$325.45</h6>
+            <span></span>
+            <button>Add-cart</button>
+        </div>
+        <div class="produit">
+            <img src="images/11.jpg" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, a!</p>
+            <h6>$325.45</h6>
+            <span></span>
+            <button>Add-cart</button>
+        </div>
+        <div class="produit">
+            <img src="images/10.jpg" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, a!</p>
+            <h6>$325.45</h6>
+            <span></span>
+            <button>Add-cart</button>
+        </div>
+    </section>
+    <div class="select">
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var noti = document.querySelector('.h1');
+    var select = document.querySelector('.select');
+    var button = document.querySelectorAll('.produit button');
+    // var button = document.getElementsByTagName('button');
+    
+    for(but of button){
+        but.addEventListener('click', (e)=>{
+            var add = Number(noti.getAttribute('data-count')|| 0);
+            noti.setAttribute('data-count', add + 1);
+            noti.classList.add('zero');
+
+            //la copie de l'element et coler
+            var parent = e.target.parentNode;
+            var clone = parent.cloneNode(true);
+            select.appendChild(clone);
+            clone.lastElement.innerText = "Buy-now";
+            if(clone){
+                noti.onclick =()=>{
+                    select.classList.toggle('afficher');
+                }
+            }
+            //animation des images
+            var image = e.target.parentNode.querySelector('img');
+            var span = e.target.parentNode.querySelector('span');
+            var s_image = image.cloneNode(false);
+            span.cloneNode.add('active');
+            setTimeout(()=>{
+                span.removeChild(s_image);
+                span.cloneNode.remove('active');
+            }, 500)
+        })
+    }
+    noti.onclick = ()=>{
+        select.classList.toggle('afficher');
+    }
+
+</script>
